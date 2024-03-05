@@ -2,13 +2,13 @@
 
 ## Hosted Application
 
-[Link to app]
+[Link to app]https://shoppingcartnu.web.app
 
 # Features
 
 - A form to add/update products
 - Supports CRUD operations for products
-- Implementation of pagination for products from FireBase - that is they are not fetched all at once rather are fetched on demand and then cached. 
+- Implementation of pagination for products from FireBase - that is they are not fetched all at once rather are fetched on demand and then cached.
 
 ## Tech Used
 
@@ -31,8 +31,6 @@ To test Shopping Cart UI locally, follow these steps:
 
 ## About Shopping Mart
 
-
-
 ## Liscense
 
-This project is licensed under the MIT License 
+This project is licensed under the MIT License
