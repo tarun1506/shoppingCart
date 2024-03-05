@@ -35,4 +35,4 @@ To test Shopping Cart UI locally, follow these steps:
 
 ## Liscense
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License 
