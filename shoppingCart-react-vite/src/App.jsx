@@ -76,6 +76,17 @@ export default function App() {
     setCartItems(cartItems);
   };
 
+  const updateProduct = async (id, name, price) => {
+    const updatedProductDetails = {
+      name,
+      price: +price,
+    };
+    await firebase.updateProduct(id, updatedProductDetails);
+    const products = await firebase.getProducts();
+    setProducts(products);
+  };
+
+
   const totalPages = Math.ceil(totalProducts / 20);
 
   return (
@@ -83,8 +94,8 @@ export default function App() {
       <div>
         <Header cartItems={cartItems} onDelete={onDelete} />
         <br />
-        {console.log("Products", products)}
-        <ProductList products={products} onAddToCart={onAddToCart} />
+        {/* {console.log("Products", products)} */}
+        <ProductList products={products} onAddToCart={onAddToCart} updateProduct={updateProduct}/>
         <div className="w-full d-flex align-items-center justify-content-center my-4">
           <button
             className="btn btn-sm btn-primary mr-1"

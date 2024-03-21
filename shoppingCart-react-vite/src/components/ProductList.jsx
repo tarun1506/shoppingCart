@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import Product from "./Product";
+import EditingPage from "../pages/EditingPage";
 
-export default function ProductList({ products, onAddToCart }) {
+export default function ProductList({ products, onAddToCart, updateProduct }) {
+  const [selectedProduct, setSelectedProduct] = useState({id: 0, name: "", price: 0});
+  const onEditProduct = (product) => {
+    setSelectedProduct(product);
+  };
 
   return (
     <>
@@ -12,8 +17,10 @@ export default function ProductList({ products, onAddToCart }) {
             key={i}
             product={product}
             onAddToCart={onAddToCart}
+            onEditProduct={onEditProduct}
           ></Product>
         ))}
+        <EditingPage editProduct={selectedProduct} updateProduct={updateProduct} />
       </div>
     </>
   );
@@ -22,4 +29,5 @@ export default function ProductList({ products, onAddToCart }) {
 ProductList.propTypes = {
   products: PropTypes.array.isRequired,
   onAddToCart: PropTypes.func.isRequired,
+  updateProduct: PropTypes.func.isRequired,
 };

@@ -57,6 +57,11 @@ function MyFirebase() {
     });
   };
 
+  me.updateProduct = async (id, updatedProductDetails) => {
+    await updateDoc(doc(db, "Products", id), updatedProductDetails);
+    return updatedProductDetails;
+  };
+
   me.getCartItems = async () => {
     const productRef = collection(db, "Cart");
 
@@ -85,6 +90,7 @@ function MyFirebase() {
     }));
     return { newProducts, lastVisibleDoc };
   };
+
 
   me.getTotalCountOfProducts = async () => {
     const querySnapshot = await getDocs(collection(db, "Products"));

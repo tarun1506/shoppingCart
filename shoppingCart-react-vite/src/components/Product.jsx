@@ -3,12 +3,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 
-export default function Product({ product, onAddToCart }) {
- 
-
+export default function Product({ product, onAddToCart, onEditProduct }) {
   const onAddItem = () => {
     onAddToCart(product);
   };
+
   return (
     <div className="col-sm-4 mb-3">
       <div className="card border-primary mb-3" style={{ maxWidth: "15rem" }}>
@@ -22,6 +21,16 @@ export default function Product({ product, onAddToCart }) {
               onClick={onAddItem}
             >
               Add to Cart
+            </button>
+
+            <button
+              type="button"
+              className="btn btn-primary btn-md"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              onClick={() => onEditProduct(product)}
+            >
+              Edit
             </button>
           </div>
         </div>
