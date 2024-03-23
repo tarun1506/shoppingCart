@@ -71,7 +71,7 @@ export default function App() {
   };
 
   const onDelete = async (product) => {
-    await firebase.deleteProduct(product);
+    await firebase.deleteCartProduct(product);
     const cartItems = await firebase.getCartItems();
     setCartItems(cartItems);
   };
@@ -86,6 +86,11 @@ export default function App() {
     setProducts(products);
   };
 
+  const deleteProduct = async (product) => {
+    await firebase.deleteProduct(product);
+    const products = await firebase.getProducts();
+    setProducts(products);
+  };
 
   const totalPages = Math.ceil(totalProducts / 20);
 
@@ -95,7 +100,12 @@ export default function App() {
         <Header cartItems={cartItems} onDelete={onDelete} />
         <br />
         {/* {console.log("Products", products)} */}
-        <ProductList products={products} onAddToCart={onAddToCart} updateProduct={updateProduct}/>
+        <ProductList
+          products={products}
+          onAddToCart={onAddToCart}
+          updateProduct={updateProduct}
+          deleteProduct={deleteProduct}
+        />
         <div className="w-full d-flex align-items-center justify-content-center my-4">
           <button
             className="btn btn-sm btn-primary mr-1"

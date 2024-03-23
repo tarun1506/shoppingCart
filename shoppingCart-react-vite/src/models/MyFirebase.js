@@ -12,6 +12,7 @@ import {
   limit,
   orderBy,
   updateDoc,
+  
 } from "firebase/firestore";
 import {} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -62,6 +63,11 @@ function MyFirebase() {
     return updatedProductDetails;
   };
 
+  me.deleteProduct = async (product) => {
+    const productRef = doc(db, "Products", product.id);
+    await deleteDoc(productRef);
+  };
+
   me.getCartItems = async () => {
     const productRef = collection(db, "Cart");
 
@@ -70,7 +76,7 @@ function MyFirebase() {
     });
   };
 
-  me.deleteProduct = async (product) => {
+  me.deleteCartProduct = async (product) => {
     const productRef = doc(db, "Cart", product.id);
     await deleteDoc(productRef);
   };

@@ -13,7 +13,6 @@ export default function EditingPage({ editProduct, updateProduct }) {
   };
   return (
     <>
-      {console.log(editProduct)}
       <div
         className="modal fade"
         id="exampleModal"
