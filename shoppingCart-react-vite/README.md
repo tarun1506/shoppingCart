@@ -30,6 +30,7 @@ To test Shopping Cart UI locally, follow these steps:
   `http://localhost:5173/`
 
 ## About Shopping Mart
+https://youtu.be/CmugTZ376a4
 
 ## Liscense
 
