@@ -2,7 +2,12 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
-export default function Product({ product, onAddToCart, onEditProduct, onDeleteProduct }) {
+export default function Product({
+  product,
+  onAddToCart,
+  onEditProduct,
+  onDeleteProduct,
+}) {
   const cartBtnRef = useRef();
 
   const onAddItem = () => {
@@ -18,7 +23,7 @@ export default function Product({ product, onAddToCart, onEditProduct, onDeleteP
             <button
               type="button"
               aria-label={`Delete ${product.name}`}
-              className="btn btn-danger inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              className="btn btn-outline-danger inline-flex items-center px-2.5 py-1.5 text-xs font-medium rounded text-red-700 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               onClick={() => onDeleteProduct(product)}
             >
               X
